@@ -266,7 +266,7 @@ extension PlanScene {
     
     // boss出现定时器
     private func startBossTimer() {
-        bossTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(createBoss), userInfo: nil, repeats: true)
+        bossTimer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(createBoss), userInfo: nil, repeats: true)
     }
     
     // boss发射子弹定时器
@@ -328,11 +328,11 @@ extension PlanScene {
     
     private func createPotionOrAttack() {
         // 创建药水
-        DispatchQueue.main.asyncAfter(deadline: .now() + TimeInterval(arc4random_uniform(5))) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + TimeInterval(arc4random_uniform(60))) {
             self.createNode("plan_potion")
         }
         // 增加攻击力
-        DispatchQueue.main.asyncAfter(deadline: .now() + TimeInterval(arc4random_uniform(5))) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + TimeInterval(arc4random_uniform(60))) {
             self.createNode("plan_attack")
         }
     }
