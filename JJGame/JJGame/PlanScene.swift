@@ -30,9 +30,9 @@ class PlanScene: SKScene {
     // 飞机的攻击力
     private var aggressivity: Int = 10
     // 等级 1~6
-    private var leve: Int = 1 {
+    private var level: Int = 1 {
         didSet {
-            leveLabel.text = "当前关卡: \(leve)"
+            leveLabel.text = "当前关卡: \(level)"
         }
     }
     // 得分
@@ -203,7 +203,7 @@ extension PlanScene {
         tipsLabel.zPosition = 2
         addChild(tipsLabel)
         
-        let levelLabel = SKLabelNode(text: "最终关卡: \(leve)")
+        let levelLabel = SKLabelNode(text: "最终关卡: \(level)")
         levelLabel.fontSize = 20
         levelLabel.fontColor = .white
         levelLabel.horizontalAlignmentMode = .center
@@ -245,7 +245,7 @@ extension PlanScene {
     
     // 敌机定时器
     private func startEnemyTimer() {
-        var ti = 0.5 - TimeInterval(leve) * 0.05
+        var ti = 0.5 - TimeInterval(level) * 0.05
         if ti <= 0.1 {
             ti = 0.1
         }
@@ -257,7 +257,7 @@ extension PlanScene {
     // 子弹定时器
     private func startBulletTimer() {
         stopBulletTimer()
-        var ti = 0.2 - TimeInterval(leve) * 0.02
+        var ti = 0.2 - TimeInterval(level) * 0.02
         if ti <= 0.05 {
             ti = 0.05
         }
@@ -271,7 +271,7 @@ extension PlanScene {
     
     // boss发射子弹定时器
     private func startBossBulletTimer() {
-        var ti = 1 - TimeInterval(leve) * 0.05
+        var ti = 1 - TimeInterval(level) * 0.05
         if ti <= 0.1 {
             ti = 0.1
         }
@@ -346,7 +346,7 @@ extension PlanScene {
         node.zPosition = 1
         node.name = name
         self.addChild(node)
-        var ti = 6 - TimeInterval(leve) * 0.3
+        var ti = 6 - TimeInterval(level) * 0.3
         if ti <= 1 {
             ti = 1
         }
@@ -376,7 +376,7 @@ extension PlanScene {
         enemyNode.zPosition = 1
         enemyNode.name = "enemy"
         addChild(enemyNode)
-        var ti = 6 - TimeInterval(leve) * 0.3
+        var ti = 6 - TimeInterval(level) * 0.3
         if ti <= 1 {
             ti = 1
         }
@@ -406,7 +406,7 @@ extension PlanScene {
         bulletNode.zPosition = 1
         bulletNode.name = "bullet"
         addChild(bulletNode)
-        var ti = 3 - TimeInterval(leve) * 0.5
+        var ti = 3 - TimeInterval(level) * 0.5
         if ti <= 0.5 {
             ti = 0.5
         }
@@ -452,10 +452,10 @@ extension PlanScene {
         //设置可与哪一类的物理体发生碰撞
         bossNode?.physicsBody?.contactTestBitMask = 1
         bossNode?.physicsBody?.collisionBitMask = 0
-        bossNode?.physicsBody?.mass = CGFloat(leve) * 1000
+        bossNode?.physicsBody?.mass = CGFloat(level) * 1000
         
         // 生命值
-        bossLife = leve * 1000
+        bossLife = level * 1000
         bossLifeNode = SKLabelNode(text: "\(bossLife)/\(bossLife)")
         bossLifeNode?.fontColor = .green
         bossLifeNode?.fontSize = 20
@@ -484,7 +484,7 @@ extension PlanScene {
         bossBulletNode.zPosition = 1
         bossBulletNode.name = "bossBullet"
         addChild(bossBulletNode)
-        var ti = 6 - TimeInterval(leve) * 0.3
+        var ti = 6 - TimeInterval(level) * 0.3
         if ti <= 1 {
             ti = 1
         }
@@ -542,7 +542,7 @@ extension PlanScene: SKPhysicsContactDelegate {
             planeNode.removeFromParent()
             if enemyNode.name == "boss" {
                 bossLife -= aggressivity
-                bossLifeNode?.text = "\(bossLife)/\(leve*1000)"
+                bossLifeNode?.text = "\(bossLife)/\(level*1000)"
                 blast(CGPoint(x: enemyNode.position.x, y: enemyNode.position.y - 64), fileName: "Strike")
             }
         case "plan":
@@ -577,9 +577,9 @@ extension PlanScene: SKPhysicsContactDelegate {
             case "enemy":
                 score += enemyLife
             case "boss":
-                score += leve * 1000
-                leve += 1
-                enemyLife += leve * 10
+                score += level * 1000
+                level += 1
+                enemyLife += level * 10
                 stopBossBulletTimer()
                 bossNode?.removeAllActions()
                 bossNode?.removeFromParent()
