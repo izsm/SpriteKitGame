@@ -185,7 +185,9 @@ extension PinballScene {
         ovalNode.physicsBody?.collisionBitMask = 0
         
         let tipsNode = SKLabelNode(text: "50矿石玩一次")
-        tipsNode.numberOfLines = 0
+        if #available(iOS 11.0, *) {
+            tipsNode.numberOfLines = 0
+        }
         tipsNode.position = CGPoint(x: size.width/2, y: size.height-size.width*0.5-topOffset)
         tipsNode.zPosition = 2
         tipsNode.fontSize = 25
@@ -207,7 +209,9 @@ extension PinballScene {
             gebanNode.physicsBody?.collisionBitMask = 0
             
             let rewardNode = SKLabelNode(text: model.rewardText)
-            rewardNode.numberOfLines = 0
+            if #available(iOS 11.0, *) {
+                rewardNode.numberOfLines = 0
+            }
             rewardNode.position = CGPoint(x: gridWidth*CGFloat(i)+gridWidth/2, y: size.height-size.width+30-topOffset)
             rewardNode.zPosition = 2
             rewardNode.fontSize = 18

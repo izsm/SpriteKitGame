@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6B6E114827F29BBB00906DF3"
-               BuildableName = "SpriteKit&#x4f7f;&#x7528;.app"
+               BuildableName = "i&#x6e38;.app"
                BlueprintName = "JJGame"
                ReferencedContainer = "container:JJGame.xcodeproj">
             </BuildableReference>
@@ -31,7 +31,7 @@
       </Testables>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6B6E114827F29BBB00906DF3"
-            BuildableName = "SpriteKit&#x4f7f;&#x7528;.app"
+            BuildableName = "i&#x6e38;.app"
             BlueprintName = "JJGame"
             ReferencedContainer = "container:JJGame.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6B6E114827F29BBB00906DF3"
-            BuildableName = "SpriteKit&#x4f7f;&#x7528;.app"
+            BuildableName = "i&#x6e38;.app"
             BlueprintName = "JJGame"
             ReferencedContainer = "container:JJGame.xcodeproj">
          </BuildableReference>
